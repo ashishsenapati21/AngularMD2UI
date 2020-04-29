@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   hide = true;
-  constructor() { }
+  constructor( private router: Router ) { }
 
   ngOnInit(): void {
   }
 
+  openSignUp(): void {
+    this.router.navigate(['signup'])
+  }
 }
