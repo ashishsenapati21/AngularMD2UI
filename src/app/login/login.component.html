@@ -1,0 +1,17 @@
+<div>
+    <mat-form-field class="login" appearance="outline">
+      <mat-label>Email or Phone</mat-label>
+      <input matInput>
+    </mat-form-field><br>
+    <mat-form-field class="login" appearance="outline">
+        <mat-label>Enter Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field><br>
+    <button id="forgot_pass" mat-button color="primary">Forgot Password?</button><br><br><br>
+    <button id="signup" mat-stroked-button color="primary">Create Account</button>
+    <button id="login" mat-flat-button color="primary">Log In</button>
+</div>
+  

@@ -1,0 +1,38 @@
+div{
+    width: fit-content;
+    padding: 50px;        
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    border: 2px solid teal;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.login{
+    width: 400px;
+    height: fit-content;
+}
+
+#login{
+    float: right;
+    width: fit-content;
+    font-size: medium;
+    height: 40px;
+}
+
+#signup{
+    float: left;
+    width: fit-content;
+    font-size: medium;
+    height: 40px;
+}
+
+#forgot_pass{
+    float: right;
+    width: fit-content;
+    font-size: medium;
+    height: 40px;
+}
