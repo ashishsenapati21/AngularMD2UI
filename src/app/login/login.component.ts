@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { from } from 'rxjs';
+import { UnsplashbgService } from '../unsplashbg.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { from } from 'rxjs';
 export class LoginComponent implements OnInit {
 
   hide = true;
-  constructor( private router: Router ) { }
+  constructor( private router: Router,
+               private unsplash: UnsplashbgService) { }
 
   ngOnInit(): void {
   }

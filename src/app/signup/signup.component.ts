@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -12,7 +13,8 @@ export class SignupComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this._formBuilder.group({
@@ -21,6 +23,10 @@ export class SignupComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+  }
+
+  openLogin(): void {
+    this.router.navigate(['login'])
   }
 
 }

@@ -11,6 +11,11 @@ div{
     transform: translate(-50%, -50%);
 }
 
+#label{
+    font-size: 20px;
+    font-family: 'Segoe UI';
+}
+
 .login{
     width: 400px;
     height: fit-content;

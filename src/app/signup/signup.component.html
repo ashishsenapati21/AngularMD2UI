@@ -9,22 +9,49 @@
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Email Address</mat-label>
-                    <input type="email" matInput formControlName="firstCtrl" required>
+                    <input matInput formControlName="firstCtrl" required>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input type="tel" matInput formControlName="firstCtrl" required>
+                    <input matInput formControlName="firstCtrl" required>
                 </mat-form-field><br>
-                <button id="login" mat-stroked-button color="primary" matStepperNext>Next</button>
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field><br>
+                <button (click)="openLogin()" id="signup" mat-stroked-button color="primary">Login</button>
+                <button id="login" mat-flat-button color="primary" matStepperNext>Next</button>
             </form>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Fill out your address</ng-template>
-                <mat-form-field>
-                    <mat-label>Address</mat-label>
-                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-                </mat-form-field>
+                <ng-template matStepLabel>Location Details</ng-template>
+                <!-- <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let country of countries" [value]="country.code">
+                            {{country.view}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+                <!-- <mat-form-field class="login" appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input matInput formControlName="secondCtrl" required>
+                </mat-form-field><br> -->
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="secondCtrl" required>
+                </mat-form-field><br>
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>ZIP Code</mat-label>
+                    <input matInput formControlName="secondCtrl" required>
+                </mat-form-field><br>
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="secondCtrl" required>
+                </mat-form-field><br>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button>
@@ -40,4 +67,4 @@
             </div>
         </mat-step>
     </mat-horizontal-stepper>
-<div>
+    <div>
