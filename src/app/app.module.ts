@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import {ReactiveFormsModule} from '@angular/forms';
@@ -11,13 +12,18 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LoginComponent } from './login/login.component';
 import { from } from 'rxjs';
 import { SignupComponent } from './signup/signup.component';
+
 import { UnsplashbgService } from './unsplashbg.service';
+import { MasterService } from './services/master.service';
 
 @NgModule({
   declarations: [
@@ -26,12 +32,15 @@ import { UnsplashbgService } from './unsplashbg.service';
     SignupComponent
   ],
   imports: [
+    FormsModule,
     ReactiveFormsModule,
     MatStepperModule,
+    MatSelectModule,
     MatNativeDateModule,
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
+    HttpClientModule,
     MatDatepickerModule,
     MatButtonToggleModule,
     MatInputModule,
@@ -39,7 +48,7 @@ import { UnsplashbgService } from './unsplashbg.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [UnsplashbgService],
+  providers: [UnsplashbgService, MasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,6 @@ export class UnsplashbgService {
 
   constructor() { }
 
-  getImage() : void{
-    
+  getImage(): void{
   }
 }

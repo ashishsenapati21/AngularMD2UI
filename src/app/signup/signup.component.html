@@ -28,21 +28,21 @@
         <mat-step [stepControl]="secondFormGroup">
             <form [formGroup]="secondFormGroup">
                 <ng-template matStepLabel>Location Details</ng-template>
-                <!-- <mat-form-field>
-                    <mat-label>Country</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let country of countries" [value]="country.code">
-                            {{country.view}}
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>Select Your Country</mat-label>
+                    <mat-select [(value)]="country_selected" (selectionChange)="getCities()">
+                        <mat-option *ngFor="let country of countries" [value]="country.CODE">
+                            {{country.COUNTRY}}
                         </mat-option>
                     </mat-select>
-                </mat-form-field> -->
-                <!-- <mat-form-field class="login" appearance="outline">
-                    <mat-label>Country</mat-label>
-                    <input matInput formControlName="secondCtrl" required>
-                </mat-form-field><br> -->
+                </mat-form-field>
                 <mat-form-field class="login" appearance="outline">
-                    <mat-label>City</mat-label>
-                    <input matInput formControlName="secondCtrl" required>
+                    <mat-label>Select Your City</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let city of cities" [value]="city.CITY">
+                            {{city.CITY}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>ZIP Code</mat-label>
