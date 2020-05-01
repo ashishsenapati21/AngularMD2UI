@@ -1,4 +1,4 @@
 export const env = {
-    MASTER : 'http://35.198.207.243/user',
+    MASTER : 'https://master-api-tnk3aw4f2q-de.a.run.app/user',
     URL : ''
 };
