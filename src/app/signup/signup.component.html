@@ -5,21 +5,28 @@
                 <ng-template matStepLabel>Basic Details</ng-template>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Full Name</mat-label>
-                    <input matInput formControlName="firstCtrl" required>
+                    <input matInput formControlName="fullname" required>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Email Address</mat-label>
-                    <input matInput formControlName="firstCtrl" required>
+                    <input matInput formControlName="email" required>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput formControlName="firstCtrl" required>
+                    <input matInput formControlName="phone" required>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Date of Birth</mat-label>
-                    <input matInput [matDatepicker]="picker" required>
+                    <input matInput formControlName="dob" [matDatepicker]="picker" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field><br>
+                <mat-form-field class="login" appearance="outline">
+                    <mat-label>Enter Password</mat-label>
+                    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                 </mat-form-field><br>
                 <button (click)="openLogin()" id="signup" mat-stroked-button color="primary">Login</button>
                 <button id="login" mat-flat-button color="primary" matStepperNext>Next</button>
@@ -30,7 +37,7 @@
                 <ng-template matStepLabel>Location Details</ng-template>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Select Your Country</mat-label>
-                    <mat-select [(value)]="country_selected" (selectionChange)="getCities()">
+                    <mat-select formControlName="country" required [(value)]="country_selected" (selectionChange)="getCities()">
                         <mat-option *ngFor="let country of countries" [value]="country.CODE">
                             {{country.COUNTRY}}
                         </mat-option>
@@ -38,32 +45,35 @@
                 </mat-form-field>
                 <mat-form-field class="login" appearance="outline">
                     <mat-label>Select Your City</mat-label>
-                    <mat-select>
+                    <mat-select formControlName="city" [(value)]="city_selected" required>
                         <mat-option *ngFor="let city of cities" [value]="city.CITY">
                             {{city.CITY}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
-                    <mat-label>ZIP Code</mat-label>
-                    <input matInput formControlName="secondCtrl" required>
+                    <mat-label>Location</mat-label>
+                    <input matInput formControlName="coordinates" required>
+                    <button mat-icon-button matSuffix (click)="getLocation()">
+                        <mat-icon>my_location</mat-icon>
+                    </button>
                 </mat-form-field><br>
                 <mat-form-field class="login" appearance="outline">
-                    <mat-label>Location</mat-label>
-                    <input matInput formControlName="secondCtrl" required>
+                    <mat-label>ZIP Code</mat-label>
+                    <input matInput formControlName="zipcode" required>
                 </mat-form-field><br>
                 <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <button id="signup" mat-stroked-button color="primary" matStepperPrevious>Back</button>
+                    <button id="login" mat-flat-button color="primary" matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
         <mat-step>
             <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
+            <p>Welcome! Are you ready to join us?</p>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <button id="signup" mat-stroked-button color="primary" matStepperPrevious>Back</button>
+                <button id="createAccount" mat-flat-button color="primary"  (click)="createAccount()">Create My Account</button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>

@@ -1,6 +1,6 @@
 #signup_page{
-    width: 35%;
-    padding: 50px;        
+    width: 33%;
+    padding: 30px;        
     margin: 0;
     position: absolute;
     top: 50%;
@@ -19,6 +19,13 @@
 #login{
     float: right;
     width: 30%;
+    font-size: medium;
+    height: 40px;
+}
+
+#createAccount{
+    float: right;
+    width: fit-content;
     font-size: medium;
     height: 40px;
 }
